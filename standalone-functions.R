@@ -5,9 +5,6 @@ library(dplyr)
 library(stringr)
 library(rlist)
 library(magrittr)
-options(scipen = 999)
-options(stringsAsFactors = FALSE)
-Sys.setenv(TZ = 'UTC')
 
 extract_tables_custom <- function(file_location, password = NULL) {
   params_list <- list(file = file_location,
