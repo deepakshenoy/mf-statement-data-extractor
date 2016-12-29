@@ -18,12 +18,19 @@ shinyServer(function(input, output) {
     process_data(extracted)
   })
   
+  output$mf_selector <- renderUI({
+    if (is.null(processed_data())) return(NULL)
+    
+    selectInput(inputId = 'mf_selected',
+                label = 'Select a mutual fund',
+                choices = names(processed_data()),
+                multiple = FALSE)
+  })
   
-  output$contents <- renderTable({
-    
-    tmp <- processed_data()
-    
-    tmp[[1]]
+  output$contents <- renderDataTable({
+    if (is.null(processed_data())) return(NULL)
+   
+    processed_data()[[input$mf_selected]]$purchase_data
   })
   
 })

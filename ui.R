@@ -16,7 +16,8 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-      tableOutput('contents')
+      uiOutput('mf_selector'),
+      dataTableOutput('contents')
     )
   )
 ))
