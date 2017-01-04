@@ -1,11 +1,3 @@
-library(tabulizer)
-library(data.table)
-library(dtplyr)
-library(dplyr)
-library(stringr)
-library(rlist)
-library(magrittr)
-
 extract_tables_custom <- function(file_location, password = NULL) {
   params_list <- list(file = file_location,
                       guess = FALSE,
